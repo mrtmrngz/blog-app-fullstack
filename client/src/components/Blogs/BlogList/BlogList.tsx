@@ -17,7 +17,6 @@ const BlogList = () => {
     const [searchParams] = useSearchParams()
 
     const [fetchBlogs, { data, isError, error, isFetching, isLoading,}] = useLazyGetBlogsQuery()
-    console.log(data)
 
     useEffect(() => {
         setBlogs([]);

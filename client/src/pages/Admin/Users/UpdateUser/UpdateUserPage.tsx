@@ -53,7 +53,6 @@ const UpdateUserPage = () => {
         }
         const results = await updateUser({userId: data?.id, updateData: sendedData, isAdminAction: true}).unwrap()
         if (results) {
-            console.log(results)
             toast.success(results.message)
             actions.resetForm()
             navigate("/admin/users")

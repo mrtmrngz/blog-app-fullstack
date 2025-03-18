@@ -1,0 +1,24 @@
+@use "../../../../responsive" as *;
+@use "../../../../variables" as *;
+
+.admin-user-list-section .admin-user-list-table {
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  td.role, td.createdAt {
+    font-size: 14px;
+  }
+
+  td.role {
+    text-transform: capitalize;
+  }
+}

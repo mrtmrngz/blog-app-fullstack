@@ -1,0 +1,197 @@
+@use 'sass:color';
+@use "../../../responsive" as *;
+@use "../../../variables" as *;
+
+aside.admin-links {
+  border-right: 1px solid $border-color;
+  background: $bg-color;
+  height: 100vh;
+  overflow: auto;
+  display: none;
+
+  @media screen and (min-width: 800px) {
+    display: block;
+  }
+
+  .admin-links-wrapper {
+    padding: 0 5px;
+    flex-direction: column;
+    height: 100%;
+
+    .admin-links-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      height: 100vh;
+      padding: 10px 0;
+
+      .main-link-item {
+        span {
+          font-weight: 600;
+          line-height: 1.2;
+          padding-left: 5px;
+          font-size: 14px;
+          margin-bottom: 5px;
+          color: gray;
+        }
+
+        .child-links {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          li {
+            width: 100%;
+
+            a {
+              transition: .3s ease all;
+              width: 100%;
+              padding: 5px 10px;
+              flex: 1;
+              font-size: 14px;
+              border-radius: 8px;
+              display: flex;
+              align-items: center;
+              column-gap: 5px;
+
+              &:hover {
+                background: color.adjust($primary-color, $lightness: 35%);
+              }
+
+              &.active {
+                background: color.adjust($primary-color, $lightness: 25%);
+              }
+            }
+          }
+        }
+      }
+
+      .back-to-home-item {
+        margin-top: auto;
+        padding: 0 5px;
+        font-size: 14px;
+
+        a {
+          display: flex;
+          align-items: center;
+          column-gap: 5px;
+          transition: .3s ease all;
+          padding: 5px 10px;
+          border-radius: 8px;
+
+          &:hover {
+            background: color.adjust($primary-color, $lightness: 35%);
+          }
+        }
+      }
+    }
+  }
+}
+
+aside.admin-links-mobile {
+  border-right: 1px solid $border-color;
+  background: $bg-color;
+  height: 100vh;
+  overflow: auto;
+  display: block;
+  position: fixed;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  transition: .3s ease all;
+  z-index: 60;
+
+  @include sm {
+    width: 18rem;
+  }
+
+  &.open {
+    left: 0;
+  }
+
+  @media screen and (min-width: 800px) {
+    display: none;
+  }
+
+  .admin-links-wrapper {
+    padding: 0 5px;
+    flex-direction: column;
+    height: 100%;
+
+    .admin-links-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      height: 100vh;
+      padding: 10px 0;
+
+      .main-link-item {
+        span {
+          font-weight: 600;
+          line-height: 1.2;
+          padding-left: 5px;
+          font-size: 14px;
+          margin-bottom: 5px;
+          color: gray;
+        }
+
+        .child-links {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          li {
+            width: 100%;
+
+            a {
+              transition: .3s ease all;
+              width: 100%;
+              padding: 5px 10px;
+              flex: 1;
+              font-size: 14px;
+              border-radius: 8px;
+              display: flex;
+              align-items: center;
+              column-gap: 5px;
+
+              &:hover {
+                background: color.adjust($primary-color, $lightness: 35%);
+              }
+
+              &.active {
+                background: color.adjust($primary-color, $lightness: 25%);
+              }
+            }
+          }
+        }
+      }
+
+      .back-to-home-item {
+        margin-top: auto;
+        padding: 0 5px;
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+        align-items: start;
+
+        a, button {
+          display: flex;
+          align-items: center;
+          column-gap: 5px;
+          transition: .3s ease all;
+          padding: 5px 10px;
+          border-radius: 8px;
+          width: 100%;
+          font-size: 14px;
+
+          &:hover {
+            background: color.adjust($primary-color, $lightness: 35%);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@use "../../../variables" as *;
+@use "../../../responsive" as *;
+@use "sass:color";
+
+.custom-table {
+  min-width: 1000px;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid $border-color;
+
+  thead {
+    th {
+      padding: 10px ;
+      border-bottom: 1px solid $border-color;
+      text-align: left;
+      font-size: 14px;
+
+      &:not(:last-child) {
+        border-right: 1px solid $border-color;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+
+      &:hover td {
+        background: color.adjust($border-hover-color, $lightness: 40%);
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $border-color;
+      }
+
+      td {
+        padding: 10px;
+        font-size: 15px;
+
+        &:not(:last-child) {
+          border-right: 1px solid $border-color;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String       @id @default(auto()) @map("_id") @db.ObjectId
+  firstName String
+  lastName  String
+  username  String       @unique
+  email     String       @unique
+  avatar    String?
+  password  String
+  role      Role         @default(user)
+  bio       String?
+  blogs     Blog[]
+  reading   BlogReader[]
+  likes     LikeBlog[]
+  follower  Following[]  @relation("FollowerRelation")
+  following Following[]  @relation("FollowingRelation")
+  comments  Comment[]
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+}
+
+enum Role {
+  user
+  admin
+}
+
+model Following {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  follower    User   @relation("FollowerRelation", fields: [followerId], references: [id], onDelete: Cascade)
+  followerId  String @db.ObjectId
+  following   User   @relation("FollowingRelation", fields: [followingId], references: [id], onDelete: Cascade)
+  followingId String @db.ObjectId
+
+  @@unique([followerId, followingId])
+}
+
+model Category {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  slug      String   @unique
+  blogs     Blog[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Blog {
+  id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String       @unique
+  description String
+  content     String
+  image       String
+  author      User         @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId    String       @db.ObjectId
+  categoryId  String       @db.ObjectId
+  category    Category     @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  readers     BlogReader[]
+  likes       LikeBlog[]
+  comments    Comment[]
+  readerCount Int          @default(0)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model BlogReader {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  blogId String @db.ObjectId
+  blog   Blog   @relation(fields: [blogId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, blogId])
+}
+
+model LikeBlog {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  blogId String @db.ObjectId
+  blog   Blog   @relation(fields: [blogId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, blogId])
+}
+
+model Comment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  review    Int
+  comment   String
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  blogId    String   @db.ObjectId
+  blog      Blog     @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}

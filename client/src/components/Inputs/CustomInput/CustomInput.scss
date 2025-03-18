@@ -1,0 +1,9 @@
+.custom-input-group {
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+  input, textarea {
+    width: 100% !important;
+  }
+}

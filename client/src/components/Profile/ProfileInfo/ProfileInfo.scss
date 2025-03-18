@@ -1,0 +1,234 @@
+@use "../../../responsive" as *;
+@use "../../../variables" as *;
+
+.profile-info-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  min-height: calc(55vh - 85px);
+  padding: 40px 0;
+  position: relative;
+
+  @include sm {
+    padding: 60px 0;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.1) 0%, transparent 60%), radial-gradient(circle at bottom left, rgba(99, 102, 241, 0.1) 0%, transparent 60%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  .profile-info-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-direction: column;
+    padding: 0 30px;
+    flex: 1;
+
+    @include sm {
+      padding: unset;
+    }
+
+    @include md {
+      flex-direction: row;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+
+      img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 100%;
+        border: 4px solid #fff;
+        box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      flex: 1;
+      align-items: center;
+
+      @include md {
+        align-items: start;
+      }
+
+      .username {
+        font-size: 35px;
+        font-weight: 800;
+        font-family: $poppins-font;
+        line-height: 1.2;
+        background: linear-gradient(135deg, #1f2937 0%, #4b5563 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        @media screen and (min-width: 500px) {
+          font-size: 40px;
+        }
+
+        @include lg {
+          font-size: 45px;
+        }
+      }
+
+      .description {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #4b5563;
+        width: 100%;
+
+        @media screen and (min-width: 500px) {
+          font-size: 18px;
+        }
+
+        @include lg {
+          font-size: 20px;
+        }
+
+        @include md {
+          max-width: 700px;
+        }
+      }
+
+      .profile-actions {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-top: 10px;
+        flex-direction: column;
+
+        @include md {
+          flex-direction: row;
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          column-gap: 5px;
+          width: 100%;
+
+          @media screen and (min-width: 500px) {
+            &.add-blog-btn {
+              display: none;
+            }
+          }
+
+          @include md {
+            width: unset;
+          }
+
+          @include lg {
+            width: 200px;
+          }
+        }
+
+      }
+
+      .action-info {
+        margin: 10px 0;
+        background: #ffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 30px 0;
+        width: 100%;
+        flex: 1;
+        backdrop-filter: blur(8px);
+        border-radius: 16px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+
+        @include md {
+          justify-content: start;
+        }
+
+        @include sm {
+          flex-direction: row;
+        }
+
+        .single-action {
+          padding: 20px 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          @include lg {
+            padding: 0 70px;
+          }
+
+          @include sm {
+            padding: 0 60px;
+          }
+
+          &:not(:last-child) {
+            border-bottom: 1px solid $border-color;
+
+            @include sm {
+              border-right: 1px solid $border-color;
+              border-bottom: none;
+            }
+          }
+
+          &:first-child {
+
+            @include sm {
+              padding-left: 40px;
+            }
+
+            @include lg {
+              padding-left: 60px;
+            }
+          }
+
+          h2 {
+            color: $primary-color;
+            font-size: 20px;
+
+            @media screen and (min-width: 500px) {
+              font-size: 26px;
+            }
+          }
+
+          span {
+            color: gray;
+            font-size: 14px;
+
+            @media screen and (min-width: 500px) {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+
+      .join-date {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+        font-size: 14px;
+        color: gray;
+      }
+    }
+  }
+}

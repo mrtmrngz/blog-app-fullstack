@@ -1,0 +1,51 @@
+@use "../../../responsive" as *;
+@use "../../../variables" as *;
+
+dialog.alert-modal {
+  border: none;
+
+  .modal-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: $bg-color;
+    z-index: 6;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    max-width: 800px;
+    width: 100%;
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      h3 {
+        font-size: 25px;
+      }
+    }
+
+    .modal-content {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+
+      .alert-message {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .button-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        column-gap: 10px;
+      }
+    }
+  }
+}

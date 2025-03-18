@@ -1,0 +1,59 @@
+@use "../../variables" as *;
+@use "../../responsive" as *;
+
+.categories-section {
+  margin-top: 30px;
+
+  .container {
+    height: 100%;
+  }
+
+  .categories-wrapper {
+    border: 2px solid $secondary-color;
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    background: $bg-color;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    .main-categories-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      li {
+        font-size: 14px;
+        flex-shrink: 0;
+        flex-grow: 1;
+
+        @include md {
+          font-size: 16px;
+        }
+
+        a {
+          transition: .5s ease all;
+          text-transform: capitalize;
+          color: #fff;
+          height: 40px;
+          background: $primary-color;
+          text-align: center;
+          padding: 0 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 12px;
+
+          &:hover {
+            transform: translateY(-5px);
+          }
+        }
+
+        &:last-child a {
+          color: #fff;
+          background: $accent-color;
+        }
+      }
+    }
+  }
+}

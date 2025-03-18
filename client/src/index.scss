@@ -1,0 +1,293 @@
+@use "./variables" as *;
+@use "./responsive" as *;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  font-family: $inter-font;
+  line-height: 1.5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $inter-font;
+  background-color: $bg-color;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color;
+  font-size: inherit;
+  display: inline-block;
+}
+
+ol,ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button, textarea, input {
+  font-family: $inter-font;
+}
+
+button {
+  font-size: 14px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  padding: 0;
+  font-family: $poppins-font;
+}
+
+input, textarea {
+  border: 1px solid $border-color;
+  outline: none;
+  padding: 8px 13px 8px;
+  font-size: 14px;
+  background-color: $bg-color;
+
+  &:focus {
+    border-color: $border-hover-color;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+}
+
+.btn {
+  width: max-content;
+  line-height: 40px;
+  padding: 0 18px;
+  display: inline-block;
+  transition: opacity .3s ease;
+
+  &.disabled-button, &:disabled {
+    opacity: .65;
+    pointer-events: none;
+    cursor: no-drop !important;
+  }
+
+  &.normal {
+    line-height: 40px !important;
+  }
+
+  &.lg {
+    line-height: 45px !important;
+  }
+
+  &.sm {
+    line-height: 35px !important;
+  }
+
+  &:hover {
+    opacity: .75;
+  }
+
+  &.primary {
+    background: $primary-color;
+    color: #fff;
+  }
+
+  &.secondary {
+    background: $secondary-color;
+    color: #fff;
+  }
+
+  &.accent {
+    background: $accent-color;
+    color: #fff;
+  }
+
+  &.danger {
+    background: $danger-color;
+    color: #fff;
+  }
+
+  &.dark {
+    background: $dark-color;
+    color: #fff;
+  }
+
+  &.link {
+    color: $primary-color;
+
+    &:hover {
+      opacity: unset !important;
+    }
+  }
+}
+
+.link-color {
+  color: $primary-color;
+}
+
+.container {
+  max-width: 100%;
+  width: 100% !important;
+  padding: 0 3%;
+  height: 100px;
+  margin: 0 auto;
+
+  @include sm {
+    max-width: 640px;
+  }
+
+  @include md {
+    max-width: 740px;
+  }
+
+  @include lg {
+    max-width: 1000px;
+  }
+
+  @include xl {
+    max-width: 1200px;
+  }
+}
+
+.custom-search-wrapper{
+  flex: 1;
+  width: 100%;
+  position: relative;
+
+  input {
+    border-radius: 12px;
+    flex: 1;
+    width: 100%;
+    padding-left: 30px;
+    border: 2px solid $border-color;
+    transition: .3s ease all;
+
+    &:focus {
+      border: 2px solid $primary-color;
+    }
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.public-main {
+  margin-top: 30px;
+
+  &.no-margin {
+    margin: unset;
+  }
+}
+
+.section-title {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.input-error-message {
+  font-size: 14px;
+  color: $danger-color;
+  font-weight: 600;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+  background: rgba(0,0,0,0.5);
+  z-index: 5;
+  display: none;
+
+  &.open {
+    display: block;
+  }
+}
+
+.admin-layout {
+  display: grid;
+  height: 100vh;
+  overflow: hidden;
+
+  @media screen and (min-width: 800px) {
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+.admin-main-wrapper {
+  overflow: auto;
+}
+
+.admin-main {
+  height: calc(100vh - 75px);
+  overflow: auto;
+  max-width: 100%;
+}
+
+section.admin-category-list {
+  overflow: auto;
+  width: 100%;
+}
+
+.admin-tables-button-wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+  font-size: 14px;
+
+  .update-btn {
+    color: $primary-color;
+  }
+
+  .delete-btn {
+    color: $danger-color;
+  }
+}
+
+.loader-wrapper {
+  background: #ffff;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  & > span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.hidden-upload {
+  display: none;
+}
+
+.progress-wrapper {
+  width: 100%;
+  background: $border-color;
+  height: 10px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+
+  div {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    top: 0;
+    background: $accent-color;
+  }
+}

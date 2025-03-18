@@ -1,0 +1,36 @@
+@use "../../../responsive" as *;
+@use "../../../variables" as *;
+
+
+.profile-blogs-section {
+  margin-top: 50px;
+  padding-bottom: 30px;
+
+  .container {
+    height: 100%;
+  }
+
+  .profile-blogs .profile-blog-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
+    gap: 20px;
+
+    .profile-blog-item {
+      border: 1px solid $border-color;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: .2s ease all;
+      position: relative;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+
+        .profile-blog-link .image-wrapper img {
+          transform: scale(1.05);
+        }
+      }
+
+    }
+  }
+}

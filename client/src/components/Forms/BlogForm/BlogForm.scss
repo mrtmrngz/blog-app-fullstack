@@ -1,0 +1,142 @@
+@use "../../../responsive" as *;
+@use "../../../variables" as *;
+
+.blog-form-section {
+  padding-bottom: 30px;
+
+  .container {
+    height: 100%;
+  }
+
+  .blog-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .blog-form-title {
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .form-wrapper {
+      background: #ffff;
+      padding: 20px;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border: 1px solid $border-color;
+      margin-top: 20px;
+
+      .blog-form {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+
+        .input-group, .quill-wrapper, .select-wrapper {
+          display: flex;
+          flex-direction: column;
+          row-gap: 5px;
+
+          .input-error-message {
+            font-size: 14px;
+            color: $danger-color;
+            font-weight: 600;
+          }
+        }
+
+        .title-input {
+          padding: 16px;
+          font-weight: 700;
+          font-size: 18px;
+          font-family: $poppins-font;
+        }
+
+        textarea {
+          font-weight: 500;
+        }
+
+        input, textarea {
+          width: 100%;
+          border-radius: 12px;
+        }
+
+        .banner-btn {
+          background: $border-color;
+          width: 100%;
+          height: 150px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          row-gap: 5px;
+          border-radius: 12px;
+
+          .upload-image-badge {
+            font-size: 14px;
+          }
+        }
+
+        .quill {
+          .ql-toolbar {
+            border-radius: 12px 12px 0 0;
+          }
+          .ql-container {
+            height: 300px;
+            border-radius: 0 0 12px 12px;
+          }
+        }
+
+        .button-select-wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          row-gap: 15px;
+
+          @media screen and (min-width: 580px) {
+            flex-direction: row;
+            align-items: center;
+          }
+
+          select {
+            padding: 8px 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+
+            @include md {
+              width: 250px;
+            }
+          }
+
+          .button-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-direction: column;
+
+            button {
+              width: 100%;
+              flex: 1;
+              text-align: center;
+              font-size: 14px !important;
+            }
+
+            @media screen and (min-width: 480px) {
+              flex-direction: row;
+
+              button {
+                width: max-content;
+              }
+            }
+
+            @media screen and (min-width: 580px) {
+              button {
+                flex: unset;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,145 @@
+@use "../../../variables" as *;
+@use "../../../responsive" as *;
+
+.most-liked-item {
+  display: flex;
+  padding: 20px 0;
+  gap: 30px;
+  flex-direction: column;
+  height: 600px;
+  position: relative;
+
+  @include lg {
+    height: 300px;
+    flex-direction: row;
+  }
+
+  &:hover .image-wrapper img {
+    scale: 1.1;
+  }
+
+  .image-wrapper {
+    height: calc(50% - 15px);
+    border-radius: 20px;
+    overflow: hidden;
+
+    @include lg {
+      height: 281px;
+      max-height: 100%;
+      flex: 2;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .3s ease-in all;
+    }
+  }
+
+  .blog-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    align-content: space-between;
+    height: calc(50% - 15px);
+
+    @include lg{
+      height: 100%;
+      flex: 3;
+    }
+
+    .cat-fav {
+      display: flex;
+      align-content: center;
+      justify-content: space-between;
+
+      .blog-category {
+        background: rgba(0,0,0,0.1);
+        font-weight: 500;
+        padding: 3px 7px;
+        font-size: 12px;
+        color: $primary-color;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include sm {
+          padding: 5px 10px;
+          font-size: 14px;
+        }
+      }
+
+      .add-fav-btn {
+        right: 15px;
+        top: 15px;
+        height: 35px;
+        width: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $border-color;
+        opacity: 1;
+        border-radius: 100%;
+        transition: .3s ease all;
+        position: absolute;
+
+        svg {
+          width: 14px !important;
+        }
+
+        &:hover {
+          scale: 1.2;
+        }
+      }
+    }
+
+    .title {
+      font-weight: 600;
+      font-family: $poppins-font;
+      font-size: 30px;
+    }
+
+    .description {
+      font-size: 14px;
+      color: $text-color;
+    }
+
+    .author-info {
+      margin-top: auto;
+      display: flex;
+      width: max-content;
+      align-items: center;
+      column-gap: 10px;
+
+      &:hover .info strong {
+        text-decoration: underline;
+      }
+
+      .avatar {
+        height: 45px;
+        width: 45px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          border-radius: 100%;
+          object-position: top;
+        }
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+        font-size: 14px;
+
+        span {
+          color: rgba(0,0,0,0.4);
+        }
+      }
+    }
+  }
+}

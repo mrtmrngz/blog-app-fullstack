@@ -1,0 +1,72 @@
+@use "../../../responsive" as *;
+@use "../../../variables" as *;
+
+.admin-dashboard-section {
+  margin-top: 30px;
+  padding: 0 3%;
+  padding-bottom: 30px !important;
+
+  .admin-dashboard-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include md {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @include lg {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include xl {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .admin-dashboard-item {
+      border: 1px solid $border-color;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+
+      .image-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+        }
+      }
+
+      .info-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .info-header {
+          margin-bottom: 20px;
+          text-align: center;
+          font-size: 20px;
+          letter-spacing: .5px;
+        }
+
+        .info {
+          display: flex;
+          flex-direction: column;
+          row-gap: 5px;
+
+          span {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+}

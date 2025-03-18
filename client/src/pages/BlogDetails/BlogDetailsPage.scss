@@ -1,0 +1,17 @@
+.blog-details-page {
+  padding-bottom: 30px;
+
+  .container {
+    height: 100%;
+  }
+
+  .blog-content {
+    padding: 30px 0;
+    font-size: 17px;
+    text-align: justify;
+
+    span, strong {
+      background-color: transparent !important;
+    }
+  }
+}

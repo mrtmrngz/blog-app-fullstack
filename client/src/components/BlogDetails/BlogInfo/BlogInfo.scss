@@ -1,0 +1,199 @@
+@use "../../../variables" as *;
+@use "../../../responsive" as *;
+
+header.blog-info-header {
+  .category-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 20px 0;
+
+    .category-wrapper {
+      background: rgba(0,0,0,0.1);
+      font-weight: 500;
+      padding: 3px 12px;
+      font-size: 14px;
+      color: $primary-color;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: max-content;
+      text-transform: uppercase;
+
+      @include sm {
+        padding: 5px 16px;
+      }
+    }
+
+    .blog-title {
+      font-size: 38px;
+
+      @include sm {
+        font-size: 48px;
+        max-width: 800px;
+      }
+    }
+  }
+
+  .blog-info-hero {
+    padding: 20px 0;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    .description {
+      font-size: 18px;
+      color: #4b5563;
+
+      @include sm {
+        font-size: 20px;
+        max-width: 750px;
+      }
+    }
+
+    .image-wrapper {
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+    }
+
+    .author-actions-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+      row-gap: 20px;
+
+      @include sm {
+        flex-direction: row;
+      }
+
+      .author-info-wrapper {
+        display: flex;
+        column-gap: 15px;
+        flex-direction: column;
+        align-items: center;
+
+        @include sm {
+          flex-direction: row;
+          align-items: start;
+        }
+
+        .avatar-wrapper {
+          position: relative;
+          cursor: pointer;
+
+          img {
+            height: 50px;
+            width: 50px;
+            object-fit: cover;
+            border-radius: 100%;
+          }
+        }
+
+        .author-info {
+
+          .name {
+            color: #1f2937;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+
+            @include sm {
+              text-align: start;
+              margin-bottom: unset;
+            }
+          }
+
+          .date_reader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            color: #6b7280;
+            row-gap: 5px;
+
+            @media screen and (min-width: 300px) {
+              flex-direction: row;
+            }
+
+            @include sm {
+              font-size: 14px;
+            }
+
+            span:first-child {
+              position: relative;
+
+              @media screen and (min-width: 300px) {
+                padding-right: 20px;
+              }
+
+              &::after {
+                content: "";
+                position: absolute;
+                width: 2px;
+                height: 2px;
+                background: #4b5563;
+                border-radius: 100%;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                display: none;
+                
+                @media screen and (min-width: 300px) {
+                  display: block;
+                }
+              }
+            }
+
+            span:last-child {
+              @media screen and (min-width: 300px) {
+                padding-left: 20px;
+              }
+            }
+          }
+        }
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        column-gap: 50px;
+
+        .single-action {
+          display: flex;
+          align-items: center;
+          column-gap: 8px;
+          font-size: 15px;
+          color: #4b5563;
+          transition: .2s ease all;
+
+          &.like-action:hover {
+            color: $primary-color;
+
+            &.liked {
+              color: $danger-color;
+            }
+          }
+
+          &.delete-action:hover {
+            color: $danger-color;
+          }
+        }
+      }
+    }
+  }
+}

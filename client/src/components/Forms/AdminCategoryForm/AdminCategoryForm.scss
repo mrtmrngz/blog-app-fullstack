@@ -1,0 +1,36 @@
+@use "../../../responsive" as *;
+@use "../../../variables" as *;
+
+
+.admin-category-form-section {
+  .wrapper {
+    padding: 0 3%;
+    margin-top: 20px;
+  }
+
+  .admin-category-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    .button-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      gap: 15px;
+      flex-direction: column;
+
+      button {
+        width: 100%;
+      }
+
+      @media screen and (min-width: 300px) {
+        flex-direction: row;
+
+        button {
+          width: max-content;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+@use "../../../../responsive" as *;
+@use "../../../../variables" as *;
+
+.admin-user-update-section .wrapper {
+  margin-top: 20px;
+  padding: 0 3%;
+  padding-bottom: 20px !important;
+
+  .admin-user-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+
+    .admin-user-form-avatar-section {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      border-radius: 100%;
+      overflow: hidden;
+      margin: 0 auto;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .change-image-btn {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        background: rgba(0,0,0,0.5);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: .2s ease-in-out all;
+      }
+
+      &:hover .change-image-btn {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+    }
+
+    .admin-user-form-input-section {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+
+      .button-select-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        row-gap: 10px;
+        
+        @media screen and (min-width: 470px) {
+          flex-direction: row;
+        }
+
+        .select-wrapper {
+          display: flex;
+          flex-direction: column;
+          row-gap: 2px;
+          width: 100%;
+
+          select {
+            padding: 8px 15px;
+
+            @media screen and (min-width: 470px) {
+              width: 250px;
+            }
+          }
+        }
+
+        .button-wrapper {
+          display: flex;
+          align-items: center;
+          column-gap: 10px;
+          width: 100%;
+
+          @media screen and (min-width: 470px) {
+            width: max-content;
+          }
+
+          button {
+            flex-basis: calc(100% - 20px);
+
+            @media screen and (min-width: 470px) {
+              flex-basis: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+}

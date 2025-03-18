@@ -57,7 +57,7 @@ const MostReaded = () => {
                 <SectionTitle>Most Readed Blogs of This Week</SectionTitle>
                 <div className="most-readed-wrapper">
                     <ul className="most-readed-list">
-                        {data.map((blog: FetchBlogInterface) => (
+                        {data && data.map((blog: FetchBlogInterface) => (
                             <li key={blog.id} className="most-readed-item">
                                 <LikedReadedItem blog={blog} />
                             </li>

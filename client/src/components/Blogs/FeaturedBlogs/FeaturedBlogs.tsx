@@ -41,7 +41,7 @@ const FeaturedBlogs = () => {
                 <SectionTitle>Featured Blogs</SectionTitle>
                 <div className="featured-blogs-wrapper">
 
-                    {data[0] && (
+                    {(data && data[0]) && (
                         <div className="left-side featured-item-wrapper">
                             <FeaturedBlogItem blog={data[0]} />
                         </div>
@@ -49,17 +49,17 @@ const FeaturedBlogs = () => {
 
                     <div className="right-side featured-item-wrapper">
                         <div className="right-side-double">
-                            {data[1] && (
+                            {(data && data[1]) && (
                                 <FeaturedBlogItem blog={data[1]} />
                             )}
 
-                            {data[2] && (
+                            {(data && data[2]) && (
                                 <FeaturedBlogItem blog={data[2]} />
                             )}
 
                         </div>
 
-                        {data[3] && (
+                        {(data && data[3]) && (
                             <FeaturedBlogItem blog={data[3]} />
                         )}
                     </div>

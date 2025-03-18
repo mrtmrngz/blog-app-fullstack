@@ -28,7 +28,7 @@ const MainCategories = () => {
                 <div className="categories-wrapper">
                     <nav>
                         <ul className="main-categories-links">
-                            {data.map((category: CategoryTypes) => (
+                            {data && data.map((category: CategoryTypes) => (
                                 <li key={category.id} className="main-category-item">
                                     <Link to={`/blogs?cat=${category.slug}`}>{category.title}</Link>
                                 </li>

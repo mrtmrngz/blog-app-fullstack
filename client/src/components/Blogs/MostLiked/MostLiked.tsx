@@ -36,7 +36,7 @@ const MostLiked = () => {
             <Container>
                 <SectionTitle>Most Liked Blog of This Week</SectionTitle>
                 <div className="most-liked-wrapper">
-                    <LikedReadedItem blog={data}/>
+                    {data && <LikedReadedItem blog={data}/>}
                 </div>
             </Container>
         </section>

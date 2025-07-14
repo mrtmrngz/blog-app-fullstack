@@ -53,11 +53,12 @@ Before running the project, ensure you have the following installed:
     - Create a `.env` file in the `backend` directory based on the `.env.example` file.
     - Add the following variables:
       ```env
-      MONGO_URI=your_mongodb_connection_string
-      JWT_SECRET=your_jwt_secret_key
+      DATABASE_URL=your_mongodb_connection_string
+      JWT_ACCESS_SECRET=your_jwt_access_secret_key
+      JWT_REFRESH_SECRET=your_jwt_refresh_secret_key
       PORT=5000
       ```
-    - Replace `your_mongodb_connection_string` with your MongoDB URI and `your_jwt_secret_key` with a secure key for JWT.
+    - Replace `your_mongodb_connection_string` with your DATABASE URL and `your_jwt_refresh_secret_key` and `your_jwt_access_secret_key` with a secure key for JWT.
 
 4. **Run the Application**:
     - Start the backend server:
